@@ -16,6 +16,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    # Scan code with Checkmarx AST
+    - name: Checkmarx AST CLI Action
+      uses: checkmarxDev/ast-github-action@v0.26-alpha #Github Action version
+      with:
+          base_uri: http://eu.ast-cloud.com/.com
+          client_id: ${{ secrets.CLIENT_ID }}
+          secret: ${{ secrets.SECRET }
     - name: Set up JDK 1.8
       uses: actions/setup-java@v1
       with:
